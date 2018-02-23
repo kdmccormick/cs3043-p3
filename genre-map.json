@@ -1,13 +1,14 @@
 {
+    "classical": [
+        "21st century classical"
+    ],
+    "dance": [
+        "acid house"
+    ],
+    "hip-hop": [
+        "abstract hip hop"
+    ],
     "uncategorized": [
-        "21st century classical",
-        "a cappella",
-        "abstract",
-        "abstract beats",
-        "abstract hip hop",
-        "abstract idm",
-        "abstractro",
-        "acid house",
         "acid jazz",
         "acid techno",
         "acoustic blues",
@@ -846,6 +847,11 @@
         "ye ye",
         "yoik",
         "zapstep",
-        "zolo"
+        "zolo",
+        "a cappella",
+        "abstract",
+        "abstract beats",
+        "abstract idm",
+        "abstractro"
     ]
 }

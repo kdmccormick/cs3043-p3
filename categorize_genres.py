@@ -13,7 +13,7 @@ with open('parent-genres.txt', 'r') as f:
 while True:
     print ('====================================')
     print('Parent genres:')
-    for code, pg_string in parent_genres.items():
+    for code, pg_string in sorted(parent_genres.items(), key=lambda t: t[0]):
         print('    ' + code + ' - ' + pg_string)
     with open('genre-map.json', 'r') as f:
         genre_map = defaultdict(lambda: [], json.loads(f.read()))

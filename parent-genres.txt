@@ -1,4 +1,15 @@
 p:pop
 r:rock
+c:country
+d:dance
+l:latin
+m:metal
+s:scores
+c:classical
+j:jazz
+f:funk
+a:alternative
+b:r&b
 h:hip-hop
 u:uncategorized
+o:other
