@@ -71,7 +71,10 @@ for k, username in enumerate(usernames):
         genre_counts = defaultdict(lambda: 0)
         for j, track in enumerate(tracks):
             print_progress(2, 'Track', j, tracks, track['track']['name'])
-            artist = track['track']['album']['artists'][0]
+            artists = track['track']['album']['artists']
+            if not artists:
+                continue
+            artist = artists[0]
             response = requests.get(url=artist['href'], headers=headers)
             if response.status_code != 200:
                 print_error(response, 'Artist', artist['name'])
@@ -79,29 +82,31 @@ for k, username in enumerate(usernames):
             genres = response_items(response, 'genres')
             for genre in genres:
                 genre_counts[genre] += 1 / float(len(genres))
+
     total_counts = sum(count for genre, count in genre_counts.items())
+    genre_rates = defaultdict(lambda: 0)
     for genre, count in genre_counts.items():
-        genre_rates[username][genre] = count / total_counts
+        genre_rates[genre] = count / total_counts
+    try:
+        with open('user-genres.json', 'r') as f:
+            saved_user_genre_rates = json.loads(f.read())
+    except:
+        saved_user_genre_rates = {}
+
+    saved_user_genre_rates[username] = genre_rates
+    with open('user-genres.json', 'w') as f:
+        f.write(
+            json.dumps(
+                saved_genre_rates,
+                sort_keys=True,
+                indent=4,
+                separators=(',', ': '),
+            ),
+        )
+    print('Wrote data to file.')
+
     if interrupted:
         break
-
-try:
-    with open('user-genres.json', 'r') as f:
-        saved_genre_rates = json.loads(f.read())
-except:
-    saved_genre_rates = {}
-
-saved_genre_rates.update(genre_rates)
-
-with open('user-genres.json', 'w') as f:
-    f.write(
-        json.dumps(
-            saved_genre_rates,
-            sort_keys=True,
-            indent=4,
-            separators=(',', ': '),
-        ),
-    )
 
 for username in usernames:
     print(username)
