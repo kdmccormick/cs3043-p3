@@ -53,29 +53,52 @@ for k, username in enumerate(usernames):
         'Authorization': 'Bearer ' + token,
         'Accept': 'application/json',
     }
-    response = requests.get(url=base_url, headers=headers)
+    response = requests.get(
+        url=base_url,
+        headers=headers,
+        params={'limit': 50, 'fields': 'items(name,href)'},
+    )
     if response.status_code != 200:
         print_error(response, 'User', username)
         continue
     playlists = response_items(response, 'items')
+    genre_counts = defaultdict(lambda: 0)
     for i, playlist in enumerate(playlists):
         print_progress(1, 'Playlist', i, playlists, playlist['name'])
-        response = requests.get(
-            url=(playlist['href'] + '/tracks'),
-            headers=headers,
-        )
-        if response.status_code != 200:
-            print_error(response, 'Playlist', playlist['name'])
+        tracks = []
+        offset = 0
+        while True:
+            response = requests.get(
+                url=(playlist['href'] + '/tracks'),
+                headers=headers,
+                params={
+                    'limit': 100,
+                    'offset': offset,
+                    'fields': 'items(track(name,album(artists(name,href))))',
+                },
+            )
+            if response.status_code != 200:
+                print_error(response, 'Playlist', playlist['name'])
+                break
+            these_tracks = response_items(response, 'items')
+            tracks.extend(these_tracks)
+            if len(these_tracks) < 100:
+                break
+            else:
+                offset += 100
+        if not tracks:
             continue
-        tracks = response_items(response, 'items')
-        genre_counts = defaultdict(lambda: 0)
         for j, track in enumerate(tracks):
             print_progress(2, 'Track', j, tracks, track['track']['name'])
             artists = track['track']['album']['artists']
             if not artists:
                 continue
             artist = artists[0]
-            response = requests.get(url=artist['href'], headers=headers)
+            response = requests.get(
+                url=artist['href'],
+                headers=headers,
+                params={'fields': 'items(name,genres)'},
+            )
             if response.status_code != 200:
                 print_error(response, 'Artist', artist['name'])
                 continue
@@ -97,7 +120,7 @@ for k, username in enumerate(usernames):
     with open('user-genres.json', 'w') as f:
         f.write(
             json.dumps(
-                saved_genre_rates,
+                saved_user_genre_rates,
                 sort_keys=True,
                 indent=4,
                 separators=(',', ': '),
