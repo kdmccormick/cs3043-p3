@@ -91,25 +91,9 @@ for k, username in enumerate(usernames):
         if not tracks:
             continue
         for j, track in enumerate(tracks):
-            #print_progress(2, 'Track', j, tracks, track['track']['name'])
             artists = track['track']['album']['artists']
-            if not artists:
-                continue
-            artist = artists[0]
-            artist_counts[artist['id']] += 1
-            '''
-            response = requests.get(
-                url=artist['href'],
-                headers=headers,
-                params={'fields': 'items(name,genres)'},
-            )
-            if response.status_code != 200:
-                print_error(response, 'Artist', artist['name'])
-                continue
-            genres = response_items(response, 'genres')
-            for genre in genres:
-                genre_counts[genre] += 1 / float(len(genres))
-            '''
+            for artist in artists:
+                artist_counts[artist['id']] += float(1 / len(artists))
 
     genre_counts = defaultdict(lambda: 0)
     artist_ids = list(artist_counts.keys())
@@ -124,12 +108,14 @@ for k, username in enumerate(usernames):
         )
         if response.status_code != 200:
             print('Error! Failed to get artist genres. Aborting.')
-            print('these_artist_ids=' + str(these_artist_ids))
             sys.exit(1)
         artists = response_items(response, 'artists')
         for artist in artists:
             for genre in artist['genres']:
-                genre_counts[genre] += artist_counts[artist['id']] / float(len(artist['genres']))
+                genre_counts[genre] += (
+                    artist_counts[artist['id']] /
+                    float(len(artist['genres'])
+                )
 
     total_counts = sum(count for genre, count in genre_counts.items())
     genre_rates = defaultdict(lambda: 0)
