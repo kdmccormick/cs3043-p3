@@ -90,8 +90,16 @@ for k, username in enumerate(usernames):
                 offset += 100
         if not tracks:
             continue
-        for j, track in enumerate(tracks):
-            artists = track['track']['album']['artists']
+        for track in tracks:
+            track = track['track']
+            if not track:
+                continue
+            album = track['album']
+            if not album:
+                continue
+            artists = album['artists']
+            if not artists:
+                continue
             for artist in artists:
                 artist_counts[artist['id']] += float(1 / len(artists))
 
@@ -114,7 +122,7 @@ for k, username in enumerate(usernames):
             for genre in artist['genres']:
                 genre_counts[genre] += (
                     artist_counts[artist['id']] /
-                    float(len(artist['genres'])
+                    float(len(artist['genres']))
                 )
 
     total_counts = sum(count for genre, count in genre_counts.items())
