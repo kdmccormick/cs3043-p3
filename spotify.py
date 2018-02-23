@@ -3,6 +3,22 @@
 import json
 import requests
 from collections import defaultdict
+import signal
+import sys
+
+interrupted = False
+def signal_handler(signal, frame):
+    global interrupted
+    if interrupted:
+        sys.exit(1)
+    else:
+        print('==========================================')
+        print(' Interrupted! Will quit after this user.')
+        print(' Interrupt again to quit immediately.')
+        print('==========================================')
+        interrupted = True
+
+signal.signal(signal.SIGINT, signal_handler)
 
 def print_progress(indent, item_type, index, items, item):
     print(
@@ -66,6 +82,26 @@ for k, username in enumerate(usernames):
     total_counts = sum(count for genre, count in genre_counts.items())
     for genre, count in genre_counts.items():
         genre_rates[username][genre] = count / total_counts
+    if interrupted:
+        break
+
+try:
+    with open('user-genres.json', 'r') as f:
+        saved_genre_rates = json.loads(f.read())
+except:
+    saved_genre_rates = {}
+
+saved_genre_rates.update(genre_rates)
+
+with open('user-genres.json', 'w') as f:
+    f.write(
+        json.dumps(
+            saved_genre_rates,
+            sort_keys=True,
+            indent=4,
+            separators=(',', ': '),
+        ),
+    )
 
 for username in usernames:
     print(username)
