@@ -68,7 +68,10 @@
         "vienna indie",
         "new americana",
         "new weird america",
-        "norwegian indie"
+        "norwegian indie",
+        "stomp and holler",
+        "spanish indie pop",
+        "ok indie"
     ],
     "b": [
         "alternative r&b",
@@ -85,7 +88,8 @@
         "memphis soul",
         "neo soul",
         "vapor soul",
-        "northern soul"
+        "northern soul",
+        "southern soul"
     ],
     "c": [
         "21st century classical",
@@ -157,7 +161,8 @@
         "microhouse",
         "minimal tech house",
         "new rave",
-        "christian dance"
+        "christian dance",
+        "swedish eurodance"
     ],
     "e": [
         "acid house",
@@ -276,7 +281,13 @@
         "neurostep",
         "new wave",
         "no wave",
-        "nordic house"
+        "nordic house",
+        "nu disco",
+        "nu age",
+        "nu skool breaks",
+        "outsider house",
+        "substep",
+        "sound art"
     ],
     "f": [
         "alternative americana",
@@ -312,7 +323,9 @@
         "traditional folk",
         "western swing",
         "nl folk",
-        "nordic folk"
+        "nordic folk",
+        "outlaw country",
+        "string folk"
     ],
     "h": [
         "abstract hip hop",
@@ -364,7 +377,11 @@
         "west coast rap",
         "west coast trap",
         "wonky",
-        "norwegian hip hop"
+        "norwegian hip hop",
+        "speed garage",
+        "old school hip hop",
+        "spanish hip hop",
+        "southern hip hop"
     ],
     "i": [
         "belly dance",
@@ -440,7 +457,10 @@
         "new age",
         "new jack swing",
         "new orleans blues",
-        "new orleans jazz"
+        "new orleans jazz",
+        "stride",
+        "swamp blues",
+        "nu jazz"
     ],
     "l": [
         "andean",
@@ -489,7 +509,12 @@
         "vallenato",
         "velha guarda",
         "vintage tango",
-        "norteno"
+        "norteno",
+        "orquesta tipica",
+        "nu-cumbia",
+        "spanish pop",
+        "nueva cancion",
+        "spanish pop rock"
     ],
     "m": [
         "alternative metal",
@@ -573,7 +598,16 @@
         "visual kei",
         "wave",
         "christian hardcore",
-        "neo-trad metal"
+        "neo-trad metal",
+        "spanish new wave",
+        "pagan black metal",
+        "steampunk",
+        "stoner metal",
+        "nwobhm",
+        "nu metal",
+        "speed metal",
+        "oi",
+        "orgcore"
     ],
     "o": [
         "desi",
@@ -638,7 +672,9 @@
         "idol",
         "new romantic",
         "new tribe",
-        "ninja"
+        "ninja",
+        "nu gaze",
+        "stomp and whittle"
     ],
     "p": [
         "acoustic pop",
@@ -735,7 +771,11 @@
         "viral pop",
         "new wave pop",
         "noise pop",
-        "norwegian pop"
+        "norwegian pop",
+        "stomp pop",
+        "stomp and flutter",
+        "operatic pop",
+        "swedish folk pop"
     ],
     "r": [
         "album rock",
@@ -792,7 +832,15 @@
         "christian alternative rock",
         "neue deutsche harte",
         "new rave",
-        "noise rock"
+        "noise rock",
+        "stoner rock",
+        "spanish rock",
+        "swedish alternative rock",
+        "strut",
+        "southern rock",
+        "surf music",
+        "space rock",
+        "swedish hard rock"
     ],
     "s": [
         "anime",
@@ -814,59 +862,10 @@
         "video game music",
         "vintage italian soundtrack",
         "nintendocore",
-        "movie tunes"
-    ],
-    "u": [
-        "orquesta tipica",
-        "stomp and holler",
-        "stomp pop",
-        "nu disco",
-        "stoner rock",
-        "spanish new wave",
-        "nu age",
-        "speed garage",
-        "stride",
-        "old school hip hop",
-        "spanish rock",
-        "southern soul",
-        "nu-cumbia",
-        "pagan black metal",
-        "swamp blues",
-        "steampunk",
-        "outlaw country",
-        "swedish alternative rock",
-        "stomp and flutter",
-        "strut",
+        "movie tunes",
         "soundtrack",
         "orchestral",
-        "nu skool breaks",
-        "outsider house",
-        "stoner metal",
-        "southern rock",
-        "nu gaze",
-        "surf music",
-        "spanish pop",
-        "nu jazz",
-        "spanish hip hop",
-        "nwobhm",
-        "southern hip hop",
-        "nu metal",
-        "string folk",
-        "stomp and whittle",
-        "swedish eurodance",
-        "substep",
-        "speed metal",
-        "operatic pop",
-        "spanish indie pop",
-        "otacore",
-        "space rock",
-        "swedish folk pop",
-        "oi",
-        "swedish hard rock",
-        "sound art",
-        "ok indie",
-        "nueva cancion",
-        "orgcore",
-        "spanish pop rock"
-    ]
+        "otacore"
+    ],
+    "u": []
 }
