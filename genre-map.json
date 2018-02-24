@@ -1,54 +1,80 @@
 {
-    "classical": [
-        "21st century classical"
-    ],
-    "dance": [
-        "acid house"
-    ],
-    "hip-hop": [
-        "abstract hip hop"
-    ],
-    "uncategorized": [
-        "acid jazz",
-        "acid techno",
-        "acoustic blues",
-        "acoustic pop",
-        "adult standards",
+    "a": [
         "afrobeat",
-        "album rock",
         "albuquerque indie",
         "alt-indie rock",
-        "alternative americana",
-        "alternative country",
-        "alternative dance",
         "alternative emo",
-        "alternative hip hop",
-        "alternative metal",
-        "alternative pop",
-        "alternative pop rock",
-        "alternative r&b",
         "alternative rock",
         "alternative roots rock",
+        "anthem emo",
+        "anti-folk",
+        "athens indie"
+    ],
+    "b": [
+        "alternative r&b"
+    ],
+    "c": [
+        "21st century classical"
+    ],
+    "d": [
+        "alternative dance",
+        "ambient idm"
+    ],
+    "e": [
+        "acid house",
+        "acid techno",
         "ambeat",
         "ambient",
-        "ambient idm",
-        "anarcho-punk",
+        "aussietronica"
+    ],
+    "f": [
+        "alternative americana",
+        "alternative country"
+    ],
+    "h": [
+        "abstract hip hop",
+        "alternative hip hop"
+    ],
+    "j": [
+        "acid jazz",
+        "acoustic blues"
+    ],
+    "l": [
         "andean",
-        "anime",
-        "anime score",
-        "anthem emo",
-        "anthem worship",
-        "anti-folk",
-        "antiviral pop",
         "argentine indie",
         "argentine reggae",
-        "argentine rock",
-        "art pop",
+        "argentine rock"
+    ],
+    "m": [
+        "alternative metal",
+        "anarcho-punk",
+        "atmospheric black metal"
+    ],
+    "o": [
+        "a cappella",
+        "abstract",
+        "abstract beats",
+        "abstract idm",
+        "abstractro",
+        "adult standards"
+    ],
+    "p": [
+        "acoustic pop",
+        "alternative pop",
+        "alternative pop rock",
+        "antiviral pop",
+        "art pop"
+    ],
+    "r": [
+        "album rock",
         "art rock",
-        "athens indie",
-        "atmospheric black metal",
-        "atmospheric post rock",
-        "aussietronica",
+        "atmospheric post rock"
+    ],
+    "s": [
+        "anime",
+        "anime score"
+    ],
+    "u": [
         "austindie",
         "australian alternative rock",
         "australian dance",
@@ -847,11 +873,9 @@
         "ye ye",
         "yoik",
         "zapstep",
-        "zolo",
-        "a cappella",
-        "abstract",
-        "abstract beats",
-        "abstract idm",
-        "abstractro"
+        "zolo"
+    ],
+    "w": [
+        "anthem worship"
     ]
 }

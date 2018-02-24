@@ -22,7 +22,7 @@ for genres in user_genres.values():
 with open('genre-map.json', 'w') as f:
     f.write(
         json.dumps(
-            {'uncategorized': sorted(list(set(all_genres)))},
+            {'u': sorted(list(set(all_genres)))},
             sort_keys=True,
             indent=4,
             separators=(',', ': '),

@@ -18,10 +18,10 @@ while True:
     with open('genre-map.json', 'r') as f:
         genre_map = defaultdict(lambda: [], json.loads(f.read()))
     print('There are {0} uncategorized genres.'.format(
-        len(genre_map['uncategorized'])
+        len(genre_map['u'])
     ))
     print('Enter "q" to quit.')
-    genre = genre_map['uncategorized'][0]
+    genre = genre_map['u'][0]
     while True:
         pg_code = input('Enter code to categorize "{0}": '.format(
             genre
@@ -30,8 +30,8 @@ while True:
             sys.exit(0)
         if pg_code in parent_genres:
             break
-    genre_map['uncategorized'].remove(genre)
-    genre_map[parent_genres[pg_code]].append(genre)
+    genre_map['u'].remove(genre)
+    genre_map[pg_code].append(genre)
     with open('genre-map.json', 'w') as f:
         f.write(
             json.dumps(
