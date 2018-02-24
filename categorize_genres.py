@@ -36,6 +36,8 @@ while True:
     print('There are {0} uncategorized genres.'.format(
         len(genre_map['u'])
     ))
+    if not genre_map['u']:
+        sys.exit(0)
     if offset >= len(genre_map['u']):
         print('Offset exceeds number of uncategorized genres.')
         print('Run this script again with a lower offset.')
