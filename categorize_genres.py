@@ -3,12 +3,16 @@
 import json
 from collections import defaultdict
 import sys
+from os import system
 
 with open('parent-genres.txt', 'r') as f:
     parent_genres = {
         line.split(':')[0]: line.split(':')[1]
         for line in f.read().splitlines()
     }
+
+def open_in_chrome(url):
+    system('google-chrome "{0}" > /dev/null 2>&1'.format(url))
 
 while True:
     print ('====================================')
@@ -17,10 +21,12 @@ while True:
         print('    ' + code + ' - ' + pg_string)
     with open('genre-map.json', 'r') as f:
         genre_map = defaultdict(lambda: [], json.loads(f.read()))
+    print('Other options:')
+    print('    q - quit')
+    print('    ? - Search information about genre')
     print('There are {0} uncategorized genres.'.format(
         len(genre_map['u'])
     ))
-    print('Enter "q" to quit.')
     genre = genre_map['u'][0]
     while True:
         pg_code = input('Enter code to categorize "{0}": '.format(
@@ -28,7 +34,14 @@ while True:
         ))
         if pg_code == 'q':
             sys.exit(0)
-        if pg_code in parent_genres:
+        elif pg_code == '?':
+            open_in_chrome('http://everynoise.com/everynoise1d.cgi?root={0}&scope=all'.format(
+                genre.replace(' ', '%20')
+            ))
+            open_in_chrome('http://google.com/search?q={0}+genre'.format(
+                genre.replace(' ', '+')
+            ))
+        elif pg_code in parent_genres:
             break
     genre_map['u'].remove(genre)
     genre_map[pg_code].append(genre)
