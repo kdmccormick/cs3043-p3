@@ -14,6 +14,15 @@ with open('parent-genres.txt', 'r') as f:
 def open_in_chrome(url):
     system('google-chrome "{0}" > /dev/null 2>&1'.format(url))
 
+offset = -1
+while offset < 0:
+    try:
+        offset = int(input('Enter offset: '))
+    except ValueError:
+        continue
+    else:
+        break
+
 while True:
     print ('====================================')
     print('Parent genres:')
@@ -27,7 +36,11 @@ while True:
     print('There are {0} uncategorized genres.'.format(
         len(genre_map['u'])
     ))
-    genre = genre_map['u'][0]
+    if offset > len(genre_map['u']):
+        print('Offset exceeds number of uncategorized genres.')
+        print('Run this script again with a lower offset.')
+        sys.exit(0)
+    genre = genre_map['u'][offset]
     while True:
         pg_code = input('Enter code to categorize "{0}": '.format(
             genre
