@@ -4,6 +4,7 @@ f:country/folk
 d:dance
 l:latin
 i:african
+s:asian
 m:metal/hardcore/punk
 s:scores
 c:classical
