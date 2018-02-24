@@ -4,7 +4,6 @@ f:country/folk
 d:dance
 l:latin
 i:african
-s:asian
 m:metal/hardcore/punk
 s:scores
 c:classical
@@ -13,6 +12,5 @@ a:alternative/indie/pop-punk
 b:r&b/soul
 h:hip-hop
 e:electronic
-w:worship
 u:uncategorized
 o:other
