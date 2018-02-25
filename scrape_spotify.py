@@ -45,6 +45,7 @@ usernames = s.splitlines()
 usernames = [un for un in usernames if not un.startswith('#')]
 
 genre_rates = { username: defaultdict(lambda: 0) for username in usernames }
+aggregate_genre_counts = defaultdict(lambda: 0)
 
 for k, username in enumerate(usernames):
     print_progress(0, 'User', k, usernames, username)
@@ -124,6 +125,7 @@ for k, username in enumerate(usernames):
                     artist_counts[artist['id']] /
                     float(len(artist['genres']))
                 )
+                aggregate_genre_counts[genre] += genre_counts[genre]
 
     total_counts = sum(count for genre, count in genre_counts.items())
     genre_rates = defaultdict(lambda: 0)
@@ -149,3 +151,15 @@ for k, username in enumerate(usernames):
 
     if interrupted:
         break
+
+aggregate_genre_counts_list = sorted(
+    aggregate_genre_counts.items(),
+    key=lambda x: x[0],
+)
+aggregate_genre_counts_str = ','.join(
+    '{0}\t{1:.2f}'.format(genre, count)
+    for genre, count in aggregate_genre_counts_list
+)
+
+with open('genre-song-counts.tsv', 'w') as f:
+    f.write(aggregate_genre_counts_str)
