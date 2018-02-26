@@ -156,7 +156,7 @@ aggregate_genre_counts_list = sorted(
     aggregate_genre_counts.items(),
     key=lambda x: x[0],
 )
-aggregate_genre_counts_str = ','.join(
+aggregate_genre_counts_str = '\n'.join(
     '{0}\t{1:.2f}'.format(genre, count)
     for genre, count in aggregate_genre_counts_list
 )
