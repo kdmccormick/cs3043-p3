@@ -161,5 +161,5 @@ aggregate_genre_counts_str = '\n'.join(
     for genre, count in aggregate_genre_counts_list
 )
 
-with open('genre-song-counts.tsv', 'w') as f:
-    f.write(aggregate_genre_counts_str)
+#with open('genre-song-counts.tsv', 'w') as f:
+#    f.write(aggregate_genre_counts_str)

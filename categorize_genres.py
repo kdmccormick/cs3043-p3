@@ -5,9 +5,9 @@ from collections import defaultdict
 import sys
 from os import system
 
-with open('parent-genres.txt', 'r') as f:
+with open('parent-genres.tsv', 'r') as f:
     parent_genres = {
-        line.split(':')[0]: line.split(':')[1]
+        line.split('\t')[0]: line.split('\t')[1]
         for line in f.read().splitlines()
     }
 

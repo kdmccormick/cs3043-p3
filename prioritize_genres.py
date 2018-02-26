@@ -2,9 +2,9 @@
 
 import json
 
-with open('parent-genres.txt', 'r') as f:
+with open('parent-genres.tsv', 'r') as f:
     parent_genre_codes = [
-        line.split(':')[0]
+        line.split('\t')[0]
         for line in f.read().splitlines()
     ]
 
